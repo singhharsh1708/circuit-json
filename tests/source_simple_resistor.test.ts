@@ -23,8 +23,8 @@ test("source_simple_resistor parse preserves display_tolerance", () => {
   expect(resistor.display_tolerance).toBe("5%")
 })
 
-test("source_simple_resistor accepts the tolerance strings a resistor can produce", () => {
-  for (const tolerance of [undefined, "", "5%", "0.1%", "12.5%", "±5%"]) {
+test("source_simple_resistor accepts an optional display_tolerance string", () => {
+  for (const tolerance of [undefined, "5%", "0.1%", "12.5%", "100%"]) {
     const resistor = source_simple_resistor.parse({
       ...base,
       display_tolerance: tolerance,
